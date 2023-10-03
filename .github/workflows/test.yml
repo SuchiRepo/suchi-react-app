@@ -3,7 +3,16 @@ name: CI
 #on: [push]
 on:
   workflow_dispatch:
-
+    inputs:
+      environment:
+        description: 'The environment to deploy to'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+          - production
+          - qa
+          - dev
 jobs:
   build:
 

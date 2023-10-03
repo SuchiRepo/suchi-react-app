@@ -15,7 +15,8 @@ on:
           - dev
 jobs:
   build:
-
+#    if: ${{ failure() && steps.demo.conclusion == 'failure' }}
+    if: ${{ github.event.inputs.environment == 'qa' }}
     runs-on: ubuntu-latest
 
     steps:
